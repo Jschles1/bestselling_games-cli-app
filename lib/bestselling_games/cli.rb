@@ -1,0 +1,3 @@
+class BestsellingGames::CLI
+
+end

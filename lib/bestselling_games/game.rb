@@ -1,0 +1,3 @@
+class BestsellingGames::Game
+
+end
