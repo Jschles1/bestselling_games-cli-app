@@ -78,7 +78,12 @@ def get_details
 end
 
 def decision
+  puts "Type (1) if you would like to get details on another game from the list."
+  puts "Type (2) if you would like to choose another system's bestsellers to list."
+  puts "Type (3) if you would like to exit the program."
 
+  input = nil
+  input = gets.strip
 end
 
 def close_program
