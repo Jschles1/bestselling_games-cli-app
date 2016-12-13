@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Best Selling Games}
   spec.description   = %q{This gem allows you to list Gamestop's best selling games for each system, and the details of each game in CLI.}
   spec.homepage      = "https://github.com/Jschles1/bestselling_games-cli-app"
-
+  spec.license       = "MIT"
 
 
   spec.files         = ["lib/bestselling_games.rb","lib/bestselling_games/cli.rb","lib/bestselling_games/game.rb", "lib/bestselling_games/version.rb"]
