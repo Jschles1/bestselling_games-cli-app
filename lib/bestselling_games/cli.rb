@@ -61,6 +61,20 @@ def get_details
   puts ""
   print "Please enter the number of the game you want more details on: "
   input = gets.strip.downcase
+
+  if input.to_i > 0
+    game = @bestsellers[input.to_i-1]
+    puts "*******************************************************************"
+    puts "#{game.title}:"
+    puts "Published by: #{game.publisher}"
+    puts "Rating (Out of 10): #{game.rating}"
+    puts "Current price: #{game.price}"
+    puts "For more info, go to: #{game.url}"
+    puts "*******************************************************************"
+  else
+    puts "Invalid input, please try again."
+    get_details
+  end
 end
 
 def decision
