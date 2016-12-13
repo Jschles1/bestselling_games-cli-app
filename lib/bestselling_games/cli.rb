@@ -23,8 +23,37 @@ def list_bestsellers
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
-
+  elsif input == "ps4"
+    @bestsellers = BestsellingGames::Game.ps4_scrape
+    puts "Current Playstation 4 Bestsellers:"
+    @bestsellers.each.with_index(1) do |game, i|
+      puts "#{i}. #{game.title}"
+    end
+  elsif input == "wii u"
+    @bestsellers = BestsellingGames::Game.wiiu_scrape
+    puts "Current Wii U Bestsellers:"
+    @bestsellers.each.with_index(1) do |game, i|
+      puts "#{i}. #{game.title}"
+    end
+  elsif input == "3ds"
+    @bestsellers = BestsellingGames::Game.ds_scrape
+    puts "Current Nintendo 3DS Bestsellers:"
+    @bestsellers.each.with_index(1) do |game, i|
+      puts "#{i}. #{game.title}"
+    end
+  elsif input == "pc"
+    @bestsellers = BestsellingGames::Game.pc_scrape
+    puts "Current PC Bestsellers:"
+    @bestsellers.each.with_index(1) do |game, i|
+      puts "#{i}. #{game.title}"
+    end
+  elsif input == "exit"
+    close_program
+  else
+    print "Invalid input, please try again: "
+    list_bestsellers
   end
+
 end
 
 def get_details
