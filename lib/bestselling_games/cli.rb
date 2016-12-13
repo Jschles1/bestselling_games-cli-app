@@ -57,7 +57,10 @@ def list_bestsellers
 end
 
 def get_details
-
+  input = nil
+  puts ""
+  print "Please enter the number of the game you want more details on: "
+  input = gets.strip.downcase
 end
 
 def decision
