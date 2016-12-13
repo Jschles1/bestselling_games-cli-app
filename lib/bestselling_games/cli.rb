@@ -84,6 +84,19 @@ def decision
 
   input = nil
   input = gets.strip
+
+  if input.to_i == 1
+    get_details
+  elsif input.to_i == 2
+    print "Which system's current bestselling games would you like to see? (Xbox One, PS4, Wii U, 3DS, PC): "
+    list_bestsellers
+  elsif input.to_i == 3
+    close_program
+  else
+    puts "Invalid input, please try again."
+    decision
+  end
+  
 end
 
 def close_program
