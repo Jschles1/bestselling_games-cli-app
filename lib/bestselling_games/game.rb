@@ -1,5 +1,5 @@
 class BestsellingGames::Game
-  attr_accessor :title, :price, :publisher, :rating, :url
+  attr_accessor :title, :price, :publisher, :url
 
   def self.xbox_scrape
     return_array = []
@@ -17,13 +17,6 @@ class BestsellingGames::Game
       end
 
       game.publisher = games.css(".publisher.ats-product-publisher")[i].text.gsub("by ", "").strip
-
-      if games.css("p.rating.ats-product-esrbRating strong em")[i] != nil
-        game.rating = games.css("p.rating.ats-product-esrbRating strong em")[i].text.strip
-      else
-        game.rating = "No Rating"
-      end
-
       game.url = games.css(".ats-product-title-lnk")[i].attr("href").split.insert(0, "www.gamestop.com").join
       return_array << game
     end
@@ -48,13 +41,6 @@ class BestsellingGames::Game
       end
 
       game.publisher = games.css(".publisher.ats-product-publisher")[i].text.gsub("by ", "").strip
-
-      if games.css("p.rating.ats-product-esrbRating strong em")[i] != nil
-        game.rating = games.css("p.rating.ats-product-esrbRating strong em")[i].text.strip
-      else
-        game.rating = "No Rating"
-      end
-
       game.url = games.css(".ats-product-title-lnk")[i].attr("href").split.insert(0, "www.gamestop.com").join
       return_array << game
     end
@@ -79,13 +65,6 @@ class BestsellingGames::Game
       end
 
       game.publisher = games.css(".publisher.ats-product-publisher")[i].text.gsub("by ", "").strip
-
-      if games.css("p.rating.ats-product-esrbRating strong em")[i] != nil
-        game.rating = games.css("p.rating.ats-product-esrbRating strong em")[i].text.strip
-      else
-        game.rating = "No Rating"
-      end
-
       game.url = games.css(".ats-product-title-lnk")[i].attr("href").split.insert(0, "www.gamestop.com").join
       return_array << game
     end
@@ -110,13 +89,6 @@ class BestsellingGames::Game
       end
 
       game.publisher = games.css(".publisher.ats-product-publisher")[i].text.gsub("by ", "").strip
-
-      if games.css("p.rating.ats-product-esrbRating strong em")[i] != nil
-        game.rating = games.css("p.rating.ats-product-esrbRating strong em")[i].text.strip
-      else
-        game.rating = "No Rating"
-      end
-
       game.url = games.css(".ats-product-title-lnk")[i].attr("href").split.insert(0, "www.gamestop.com").join
       return_array << game
     end
@@ -141,19 +113,12 @@ class BestsellingGames::Game
       end
 
       game.publisher = games.css(".publisher.ats-product-publisher")[i].text.gsub("by ", "").strip
-
-      if games.css("p.rating.ats-product-esrbRating strong em")[i] != nil
-        game.rating = games.css("p.rating.ats-product-esrbRating strong em")[i].text.strip
-      else
-        game.rating = "No Rating"
-      end
-
       game.url = games.css(".ats-product-title-lnk")[i].attr("href").split.insert(0, "www.gamestop.com").join
       return_array << game
     end
 
     return_array
-    
+
   end
 
 end
