@@ -15,11 +15,9 @@ Gem::Specification.new do |spec|
 
 
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
-  end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.files         = ["lib/bestselling_games.rb","lib/bestselling_games/cli.rb","lib/bestselling_games/game.rb", "lib/bestselling_games/version.rb"]
+  spec.bindir        = "bin"
+  spec.executables   << "bestselling_games"
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.13"
