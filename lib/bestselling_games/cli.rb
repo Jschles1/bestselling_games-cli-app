@@ -96,11 +96,11 @@ def decision
     puts "Invalid input, please try again."
     decision
   end
-  
+
 end
 
 def close_program
-
+  puts "See you later!"
 end
 
 end
