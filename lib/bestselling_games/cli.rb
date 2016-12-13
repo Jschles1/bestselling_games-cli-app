@@ -14,7 +14,17 @@ def welcome
 end
 
 def list_bestsellers
+  input = nil
+  input = gets.strip.downcase
 
+  if input == "xbox one"
+    @bestsellers = BestsellingGames::Game.xbox_scrape
+    puts "Current Xbox One Bestsellers:"
+    @bestsellers.each.with_index(1) do |game, i|
+      puts "#{i}. #{game.title}"
+    end
+
+  end
 end
 
 def get_details
