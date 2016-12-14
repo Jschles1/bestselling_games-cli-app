@@ -47,8 +47,6 @@ def list_bestsellers
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
-  elsif input == "exit"
-    close_program
   else
     print "Invalid input, please try again: "
     list_bestsellers
