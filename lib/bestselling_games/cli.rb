@@ -60,7 +60,7 @@ def get_details
   print "Please enter the number of the game you want more details on: "
   input = gets.strip.downcase
 
-  if input.to_i > 0
+  if input.to_i > 0 && input.to_i < 13
     game = @bestsellers[input.to_i-1]
     puts "*******************************************************************"
     puts "#{game.title}:"
