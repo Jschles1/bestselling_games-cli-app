@@ -2,9 +2,7 @@ class BestsellingGames::CLI
 
 def call
   welcome
-  list_bestsellers
-  get_details
-  decision
+  list_bestsellers  
 end
 
 def welcome
@@ -23,30 +21,35 @@ def list_bestsellers
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
+    get_details
   elsif input == "ps4"
     @bestsellers = BestsellingGames::Game.ps4_scrape
     puts "Current Playstation 4 Bestsellers:"
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
+    get_details
   elsif input == "wii u"
     @bestsellers = BestsellingGames::Game.wiiu_scrape
     puts "Current Wii U Bestsellers:"
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
+    get_details
   elsif input == "3ds"
     @bestsellers = BestsellingGames::Game.ds_scrape
     puts "Current Nintendo 3DS Bestsellers:"
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
+    get_details
   elsif input == "pc"
     @bestsellers = BestsellingGames::Game.pc_scrape
     puts "Current PC Bestsellers:"
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
+    get_details
   else
     print "Invalid input, please try again: "
     list_bestsellers
@@ -72,6 +75,9 @@ def get_details
     puts "Invalid input, please try again."
     get_details
   end
+
+  decision
+
 end
 
 def decision
