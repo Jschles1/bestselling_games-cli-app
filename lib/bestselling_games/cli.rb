@@ -2,7 +2,7 @@ class BestsellingGames::CLI
 
 def call
   welcome
-  list_bestsellers  
+  list_bestsellers
 end
 
 def welcome
@@ -16,35 +16,40 @@ def list_bestsellers
   input = gets.strip.downcase
 
   if input == "xbox one"
-    @bestsellers = BestsellingGames::Game.xbox_scrape
+    BestsellingGames::Scraper.xbox_scrape
+    @bestsellers = BestsellingGames::Game.all
     puts "Current Xbox One Bestsellers:"
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
     get_details
   elsif input == "ps4"
-    @bestsellers = BestsellingGames::Game.ps4_scrape
+    BestsellingGames::Scraper.ps4_scrape
+    @bestsellers = BestsellingGames::Game.all
     puts "Current Playstation 4 Bestsellers:"
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
     get_details
   elsif input == "wii u"
-    @bestsellers = BestsellingGames::Game.wiiu_scrape
+    BestsellingGames::Scraper.wiiu_scrape
+    @bestsellers = BestsellingGames::Game.all
     puts "Current Wii U Bestsellers:"
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
     get_details
   elsif input == "3ds"
-    @bestsellers = BestsellingGames::Game.ds_scrape
+    BestsellingGames::Scraper.ds_scrape
+    @bestsellers = BestsellingGames::Game.all
     puts "Current Nintendo 3DS Bestsellers:"
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
     get_details
   elsif input == "pc"
-    @bestsellers = BestsellingGames::Game.pc_scrape
+    BestsellingGames::Scraper.pc_scrape
+    @bestsellers = BestsellingGames::Game.all
     puts "Current PC Bestsellers:"
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
