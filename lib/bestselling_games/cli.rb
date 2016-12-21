@@ -16,6 +16,7 @@ def list_bestsellers
   input = gets.strip.downcase
 
   if input == "xbox one"
+    BestsellingGames::Game.all.clear
     BestsellingGames::Scraper.xbox_scrape
     @bestsellers = BestsellingGames::Game.all
     puts "Current Xbox One Bestsellers:"
@@ -24,6 +25,7 @@ def list_bestsellers
     end
     get_details
   elsif input == "ps4"
+    BestsellingGames::Game.all.clear
     BestsellingGames::Scraper.ps4_scrape
     @bestsellers = BestsellingGames::Game.all
     puts "Current Playstation 4 Bestsellers:"
@@ -32,6 +34,7 @@ def list_bestsellers
     end
     get_details
   elsif input == "wii u"
+    BestsellingGames::Game.all.clear
     BestsellingGames::Scraper.wiiu_scrape
     @bestsellers = BestsellingGames::Game.all
     puts "Current Wii U Bestsellers:"
@@ -40,6 +43,7 @@ def list_bestsellers
     end
     get_details
   elsif input == "3ds"
+    BestsellingGames::Game.all.clear
     BestsellingGames::Scraper.ds_scrape
     @bestsellers = BestsellingGames::Game.all
     puts "Current Nintendo 3DS Bestsellers:"
@@ -48,6 +52,7 @@ def list_bestsellers
     end
     get_details
   elsif input == "pc"
+    BestsellingGames::Game.all.clear
     BestsellingGames::Scraper.pc_scrape
     @bestsellers = BestsellingGames::Game.all
     puts "Current PC Bestsellers:"
