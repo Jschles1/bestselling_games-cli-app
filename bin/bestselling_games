@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "bestselling_games"
+require_relative "../lib/bestselling_games"
+
 
 BestsellingGames::CLI.new.call
