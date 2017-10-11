@@ -1,7 +1,7 @@
 class BestsellingGames::Scraper
 
   def self.xbox_scrape
-    doc = Nokogiri::HTML(open("http://www.gamestop.com/browse/games/xbox-one?nav=28-xu0,131e0-ffff2418"))
+    doc = Nokogiri::HTML(open("https://www.gamestop.com/browse/games/xbox-one?nav=28-xu0,131e0-ffff2418"))
     games = doc.css("div.product.new_product")
     games.each_with_index do |game, i|
 
@@ -22,7 +22,7 @@ class BestsellingGames::Scraper
   end
 
   def self.ps4_scrape
-    doc = Nokogiri::HTML(open("http://www.gamestop.com/browse/games/playstation-4?nav=28-xu0,131dc-ffff2418"))
+    doc = Nokogiri::HTML(open("https://www.gamestop.com/browse/games/playstation-4?nav=28-xu0,131dc-ffff2418"))
     games = doc.css("div.product.new_product")
     games.each_with_index do |game, i|
 
@@ -43,7 +43,7 @@ class BestsellingGames::Scraper
   end
 
   def self.wiiu_scrape
-    doc = Nokogiri::HTML(open("http://www.gamestop.com/browse/games/nintendo-wii-u?nav=131b0-ffff2418"))
+    doc = Nokogiri::HTML(open("https://www.gamestop.com/browse/games/nintendo-wii-u?nav=131b0-ffff2418"))
     games = doc.css("div.product.new_product")
     games.each_with_index do |game, i|
 
@@ -64,7 +64,7 @@ class BestsellingGames::Scraper
   end
 
   def self.ds_scrape
-    doc = Nokogiri::HTML(open("http://www.gamestop.com/browse/games/nintendo-3ds?nav=131a2-ffff2418"))
+    doc = Nokogiri::HTML(open("https://www.gamestop.com/browse/games/nintendo-3ds?nav=131a2-ffff2418"))
     games = doc.css("div.product.new_product")
     games.each_with_index do |game, i|
 
@@ -85,7 +85,7 @@ class BestsellingGames::Scraper
   end
 
   def self.pc_scrape
-    doc = Nokogiri::HTML(open("http://www.gamestop.com/browse/games/pc?nav=138c-ffff2418"))
+    doc = Nokogiri::HTML(open("https://www.gamestop.com/browse/games/pc?nav=138c-ffff2418"))
     games = doc.css("div.product.new_product")
     games.each_with_index do |game, i|
 
