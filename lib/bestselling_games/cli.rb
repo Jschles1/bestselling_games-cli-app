@@ -8,7 +8,7 @@ end
 def welcome
   puts "Welcome to the Best Selling Games App!"
   sleep 1
-  print "Which system's current bestselling games would you like to see? (Xbox One, PS4, Wii U, 3DS, PC): "
+  print "Which system's current bestselling games would you like to see? (Xbox One, PS4, Switch, Wii U, 3DS, PC): "
 end
 
 def list_bestsellers
@@ -30,6 +30,15 @@ def list_bestsellers
     BestsellingGames::Scraper.ps4_scrape
     @bestsellers = BestsellingGames::Game.all
     puts "Current Playstation 4 Bestsellers:"
+    @bestsellers.each.with_index(1) do |game, i|
+      puts "#{i}. #{game.title}"
+    end
+    get_details
+  when "switch"
+    BestsellingGames::Game.all.clear
+    BestsellingGames::Scraper.switch_scrape
+    @bestsellers = BestsellingGames::Game.all
+    puts "Current Nintendo Switch Bestsellers:"
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
