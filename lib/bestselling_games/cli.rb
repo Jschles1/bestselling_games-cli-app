@@ -21,54 +21,66 @@ def list_bestsellers
     BestsellingGames::Scraper.xbox_scrape
     @bestsellers = BestsellingGames::Game.all
     puts "Current Xbox One Bestsellers:"
+
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
+
     get_details
   when "ps4"
     BestsellingGames::Game.all.clear
     BestsellingGames::Scraper.ps4_scrape
     @bestsellers = BestsellingGames::Game.all
     puts "Current Playstation 4 Bestsellers:"
+
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
+
     get_details
   when "switch"
     BestsellingGames::Game.all.clear
     BestsellingGames::Scraper.switch_scrape
     @bestsellers = BestsellingGames::Game.all
     puts "Current Nintendo Switch Bestsellers:"
+
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
+
     get_details
   when "wii u"
     BestsellingGames::Game.all.clear
     BestsellingGames::Scraper.wiiu_scrape
     @bestsellers = BestsellingGames::Game.all
     puts "Current Wii U Bestsellers:"
+
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
+
     get_details
   when "3ds"
     BestsellingGames::Game.all.clear
     BestsellingGames::Scraper.ds_scrape
     @bestsellers = BestsellingGames::Game.all
     puts "Current Nintendo 3DS Bestsellers:"
+
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
+
     get_details
   when "pc"
     BestsellingGames::Game.all.clear
     BestsellingGames::Scraper.pc_scrape
     @bestsellers = BestsellingGames::Game.all
     puts "Current PC Bestsellers:"
+
     @bestsellers.each.with_index(1) do |game, i|
       puts "#{i}. #{game.title}"
     end
+    
     get_details
   else
     print "Invalid input, please try again: "
