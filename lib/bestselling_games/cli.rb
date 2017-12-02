@@ -8,7 +8,7 @@ end
 def welcome
   puts "Welcome to the Best Selling Games App!"
   sleep 1
-  print "Which system's current bestselling games would you like to see? (Xbox One, PS4, Switch, Wii U, 3DS, PC): "
+  print "Which system's current bestselling games would you like to see? (Xbox One, PS4, Switch, Wii U, 3DS, Switch, PC): "
 end
 
 def list_bestsellers
@@ -18,7 +18,7 @@ def list_bestsellers
   case input
   when "xbox one"
     BestsellingGames::Game.all.clear
-    BestsellingGames::Scraper.xbox_scrape
+    BestsellingGames::Scraper.scrape("https://www.gamestop.com/browse/games/xbox-one?nav=28-xu0,131e0-ffff2418")
     @bestsellers = BestsellingGames::Game.all
     puts "Current Xbox One Bestsellers:"
 
@@ -29,7 +29,7 @@ def list_bestsellers
     get_details
   when "ps4"
     BestsellingGames::Game.all.clear
-    BestsellingGames::Scraper.ps4_scrape
+    BestsellingGames::Scraper.scrape("https://www.gamestop.com/browse/games/playstation-4?nav=28-xu0,131dc-ffff2418")
     @bestsellers = BestsellingGames::Game.all
     puts "Current Playstation 4 Bestsellers:"
 
@@ -40,7 +40,7 @@ def list_bestsellers
     get_details
   when "switch"
     BestsellingGames::Game.all.clear
-    BestsellingGames::Scraper.switch_scrape
+    BestsellingGames::Scraper.scrape("https://www.gamestop.com/browse/games/nintendo-switch?nav=28-xu0,13ffff2418-1e8")
     @bestsellers = BestsellingGames::Game.all
     puts "Current Nintendo Switch Bestsellers:"
 
@@ -51,7 +51,7 @@ def list_bestsellers
     get_details
   when "wii u"
     BestsellingGames::Game.all.clear
-    BestsellingGames::Scraper.wiiu_scrape
+    BestsellingGames::Scraper.scrape("https://www.gamestop.com/browse/games/nintendo-wii-u?nav=131b0-ffff2418")
     @bestsellers = BestsellingGames::Game.all
     puts "Current Wii U Bestsellers:"
 
@@ -62,7 +62,7 @@ def list_bestsellers
     get_details
   when "3ds"
     BestsellingGames::Game.all.clear
-    BestsellingGames::Scraper.ds_scrape
+    BestsellingGames::Scraper.scrape("https://www.gamestop.com/browse/games/nintendo-3ds?nav=131a2-ffff2418")
     @bestsellers = BestsellingGames::Game.all
     puts "Current Nintendo 3DS Bestsellers:"
 
@@ -73,7 +73,7 @@ def list_bestsellers
     get_details
   when "pc"
     BestsellingGames::Game.all.clear
-    BestsellingGames::Scraper.pc_scrape
+    BestsellingGames::Scraper.scrape("https://www.gamestop.com/browse/games/pc?nav=138c-ffff2418")
     @bestsellers = BestsellingGames::Game.all
     puts "Current PC Bestsellers:"
 
@@ -96,7 +96,7 @@ def get_details
   input = gets.strip.downcase
 
   if input.to_i > 0 && input.to_i < 13
-    game = @bestsellers[input.to_i-1]
+    game = @bestsellers[input.to_i - 1]
     puts "*******************************************************************"
     puts "#{game.title}:"
     puts "Published by: #{game.publisher}"
