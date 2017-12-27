@@ -9,7 +9,7 @@ def welcome
   # Welcomes user and gives options on what system's bestsellers they would like to see.
   puts "Welcome to the Best Selling Games App!"
   sleep 1
-  print "Which system's current bestselling games would you like to see? (Xbox One, PS4, Switch, Wii U, 3DS, Switch, PC): "
+  print "Which system's current bestselling games would you like to see? (Xbox One, PS4, Switch, Wii U, 3DS): "
 end
 
 def list_bestsellers
@@ -77,17 +77,6 @@ def list_bestsellers
     end
 
     get_details
-  when "pc"
-    BestsellingGames::Game.all.clear
-    BestsellingGames::Scraper.scrape("https://www.gamestop.com/browse/games/pc?nav=138c-ffff2418")
-    @bestsellers = BestsellingGames::Game.all
-    puts "Current PC Bestsellers:"
-
-    @bestsellers.each.with_index(1) do |game, i|
-      puts "#{i}. #{game.title}"
-    end
-    
-    get_details
   else
     print "Invalid input, please try again: "
     list_bestsellers
@@ -132,7 +121,7 @@ def decision
   if input.to_i == 1
     get_details
   elsif input.to_i == 2
-    print "Which system's current bestselling games would you like to see? (Xbox One, PS4, Wii U, 3DS, PC): "
+    print "Which system's current bestselling games would you like to see? (Xbox One, PS4, Switch, Wii U, 3DS): "
     list_bestsellers
   elsif input.to_i == 3
     close_program
